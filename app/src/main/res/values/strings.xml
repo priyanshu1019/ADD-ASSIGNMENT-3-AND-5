@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">class1</string>
+    <string name="name_hint">Name</string>
+    <string name="password_hint">Password</string>
 </resources>
