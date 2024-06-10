@@ -1,5 +1,7 @@
 package com.example.class1
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -22,5 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     fun myHandleClick(view: View) {
         Log.i("MainActivity" , "button was clicked")
+//        var dialIntent: Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9316233297"))
+        var webIntent : Intent = Intent(Intent.ACTION_VIEW , Uri.parse(("http://www.facebook.com")))
+        startActivity(webIntent)
     }
 }
