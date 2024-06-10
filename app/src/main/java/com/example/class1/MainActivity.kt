@@ -3,6 +3,7 @@ package com.example.class1
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.util.Log
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -23,9 +24,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun myHandleClick(view: View) {
-        Log.i("MainActivity" , "button was clicked")
-//        var dialIntent: Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9316233297"))
-        var webIntent : Intent = Intent(Intent.ACTION_VIEW , Uri.parse(("http://www.facebook.com")))
-        startActivity(webIntent)
+//        Log.i("MainActivity" , "button was clicked")
+////        var dialIntent: Intent = Intent(Intent.ACTION_DIAL, Uri.parse("tel:9316233297"))
+//        var webIntent : Intent = Intent(Intent.ACTION_VIEW , Uri.parse(("http://www.facebook.com")))
+//        startActivity(webIntent)
+        createAlarm("vit" , 15, 37)
+    }
+
+    fun createAlarm(message: String, hour: Int, minutes: Int) {
+        val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
+            putExtra(AlarmClock.EXTRA_MESSAGE, message)
+            putExtra(AlarmClock.EXTRA_HOUR, hour)
+            putExtra(AlarmClock.EXTRA_MINUTES, minutes)
+        }
+        startActivity(intent)
     }
 }
